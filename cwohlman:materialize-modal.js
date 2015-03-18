@@ -14,7 +14,8 @@ Template._makeModal = function (options) {
   var originalCloseCallback = options.complete;
 
   options.complete = function () {
-    $modal.remove();
+    Blaze.remove(modal);
+
     if (typeof originalCloseCallback === "function")
       originalCloseCallback.apply(this, arguments);
   };
@@ -28,9 +29,9 @@ Template._makeModal = function (options) {
     }
   });
 
-  var $modal = $(Blaze.renderWithData(layoutTemplate, options.data, $('body')[0]).firstNode());
+  var modal = Blaze.renderWithData(layoutTemplate, options.data, $('body')[0]);
 
   Meteor.setTimeout(function () {
-    $modal.openModal(_.omit(options, 'data', 'template', 'layoutTemplate'));
+    $(modal.firstNode()).openModal(_.omit(options, 'data', 'template', 'layoutTemplate'));
   }, 100);
 };
