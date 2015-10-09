@@ -1,4 +1,3 @@
-// Write your package code here!
 Template._makeModal = function (options) {
   if (!_.isObject(options))
     throw new Error('_makeModal requires options');
@@ -34,4 +33,6 @@ Template._makeModal = function (options) {
   Meteor.setTimeout(function () {
     $(modal.firstNode()).openModal(_.omit(options, 'data', 'template', 'layoutTemplate'));
   }, 100);
+
+  return $(modal.firstNode());
 };
