@@ -1,6 +1,8 @@
 Materialize Modals for Meteor
 ==============
 
+**Warning: This package has dependencies which are not listed in package.js, to use it you'll need to have [materializecss](http://materializecss.com/getting-started.html)'s jquery plugin in your app**
+
 Usage
 --------------
 ```javascript
